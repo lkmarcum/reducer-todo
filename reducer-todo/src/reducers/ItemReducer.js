@@ -38,6 +38,12 @@ export const itemReducer = (state, action) => {
         })
       };
 
+    case "CLEAR_COMPLETED":
+      return {
+        ...state,
+        todos: state.todos.filter(item => !item.completed)
+      };
+
     default:
       return state;
   }

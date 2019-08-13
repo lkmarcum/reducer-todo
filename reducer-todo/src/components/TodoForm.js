@@ -17,17 +17,14 @@ const TodoForm = () => {
     setNewItem("");
   };
 
-  //   const testToggle = event => {
-  //     event.preventDefault();
-
-  //     dispatch({ type: "TOGGLE_ITEM", payload: 3892987589 });
-  //     console.log("click");
-  //     console.log("after click state", state);
-  //   };
-
   const toggleItem = id => {
     dispatch({ type: "TOGGLE_ITEM", payload: id });
     console.log("click");
+  };
+
+  const clearCompleted = event => {
+    event.preventDefault();
+    dispatch({ type: "CLEAR_COMPLETED" });
   };
 
   return (
@@ -43,7 +40,7 @@ const TodoForm = () => {
           <button type="submit" onClick={submitItem}>
             Submit
           </button>
-          <button>Clear Completed</button>
+          <button onClick={clearCompleted}>Clear Completed</button>
         </div>
       </form>
       <div className="todo-list">
