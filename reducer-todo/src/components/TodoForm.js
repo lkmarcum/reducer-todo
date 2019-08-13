@@ -17,8 +17,19 @@ const TodoForm = () => {
     setNewItem("");
   };
 
-  console.log("newItem: ", newItem);
-  console.log("state in form: ", state);
+  //   const testToggle = event => {
+  //     event.preventDefault();
+
+  //     dispatch({ type: "TOGGLE_ITEM", payload: 3892987589 });
+  //     console.log("click");
+  //     console.log("after click state", state);
+  //   };
+
+  const toggleItem = id => {
+    dispatch({ type: "TOGGLE_ITEM", payload: id });
+    console.log("click");
+  };
+
   return (
     <>
       <form>
@@ -36,8 +47,8 @@ const TodoForm = () => {
         </div>
       </form>
       <div className="todo-list">
-        {state.map(task => (
-          <Todo key={task.id} task={task} />
+        {state.todos.map(task => (
+          <Todo key={task.id} task={task} toggleItem={toggleItem} />
         ))}
       </div>
     </>
