@@ -7,5 +7,17 @@ export const initialState = [
 ];
 
 export const itemReducer = (state, action) => {
-  return state;
+  switch (action.type) {
+    case "ADD_ITEM":
+      return [
+        ...state,
+        {
+          item: action.payload,
+          completed: false,
+          id: Date.now()
+        }
+      ];
+    default:
+      return state;
+  }
 };
